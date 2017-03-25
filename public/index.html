@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>City Finder</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<!-- Latest compiled and minified BOOTSTRAP JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+
+<script src='javascripts/translate.js'></script>
+
+</head>
+<body ng-app="translate" ng-controller="mainCtrl">
+
+<!-- This separates the new project material from the old example code -->
+<div id='dtdbDisplay' class='col-md-12 text-center'>
+	<h1 id='dtdbTitle'>Dictionary Word Translator</h1>
+
+	<!-- this will hold the data of the selected dictionary entry and its translation before insertion into the database -->
+	<div id='dtDisplay' class='col-md-8 col-md-offset-2'>
+
+		<div class='dt col-md-12'>
+			<form class='form-inline' ng-submit='setWord ()'>
+				<!-- pressing this putton will select a random word from the dictionary -->
+				<input type='text' id='wordTxt' ng-model='wordTxt' placeholder='Enter New Word'></input>
+				<!-- <button id='wordBtn' class='btn-success custom-btn'>Set Word</button> -->
+			</form><br>
+			<div id='wordDisplay' ng-bind='wordTxt' class='col-md-4 col-md-offset-4 dt'>Display current generated word</div><br>
+			</div>
+
+
+		<div class='dt col-md-12 form-group'>
+			<!-- the user will input the language into which the random word should be translated -->
+			<form class='form-inline' ng-submit='translateWord ()'>
+				<input type='text' id='targetTxt' ng-model='targetTxt' placeholder='Enter Target Language'></input>
+				<button id='translateBtn' class='btn-success custom-btn'>Translate</button> <br>
+			</form>
+		</div>
+		
+		<!-- this is where the translated word and definition are dislpayed OUTSIDE of the database -->
+		<div id='translateDisplay' ng-model='translateDisplay' class='col-md-10 col-md-offset-1 custom-display dt'>
+			Translations will appear here.
+		</div>
+
+		<!-- the user will press this button to add the current word and it translation to  the database -->
+		<button id='insertBtn' class='btn-primary custom-btn' ng-click'insertWords ()'>DB Insert</button>
+
+		<!-- th user will press this button to dislpay all of the words and their translations that are currently in the database -->
+		<button id='displayBtn' class='btn-primary custom-btn' ng-click'displayWords ()'>DB Display</button>
+
+		<!-- the user will press this button to clear all data from the database -->
+		<button id='clearBtn' class='btn-primary custom-btn' ng-click='deleteWords ()'>DB Clear</button>
+	</div>
+
+
+	<!-- this is where all the of the words and their translations from the database -->
+	<div id='dbDisplay' class='col-md-10 col-md-offset-1 custom-display dt'>
+		This is where the database contents will displayed when 'DB Display' is selected.
+	</div>
+</div>
+
+
+</body>
+</html>
