@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.dt {
+	min-height: 100px;
+}
+
+
+.custom-btn{
+	width: 110px;
+	border-radius: 5px;
+}
